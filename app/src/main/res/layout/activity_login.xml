@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.LoginActivity">
+
+    <include layout="@layout/nav_bar" />
+
+    <ImageView
+        android:layout_width="155dp"
+        android:layout_height="145dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:src="@mipmap/logo_icon" />
+
+    <com.example.delivery.views.InputView
+        android:id="@+id/input_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inputHeight"
+        android:layout_marginTop="@dimen/marginSize"
+        app:input_hint="@string/enter_name"
+        app:input_icon="@mipmap/name_icon"
+        app:is_password="false" />
+
+    <View style="@style/line" />
+
+    <com.example.delivery.views.InputView
+        android:id="@+id/input_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inputHeight"
+        android:layout_marginTop="@dimen/marginSize"
+        app:input_hint="@string/enter_password"
+        app:input_icon="@mipmap/password_icon"
+        app:is_password="true" />
+
+    <View style="@style/line" />
+
+    <Button
+        style="@style/btn"
+        android:layout_marginTop="@dimen/marginSize"
+        android:onClick="onLoginClick"
+        android:text="@string/login" />
+
+</LinearLayout>

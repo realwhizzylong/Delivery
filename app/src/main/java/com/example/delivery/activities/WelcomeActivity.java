@@ -1,10 +1,7 @@
 package com.example.delivery.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.delivery.R;
 
@@ -28,14 +25,13 @@ public class WelcomeActivity extends BaseActivity {
         welcomeTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                Log.e("WelcomeActivity", "Current Thread: " + Thread.currentThread());
-                toMain();
+                toLogin();
             }
-        }, 3 * 1000);
+        }, 2 * 1000);
     }
 
-    private void toMain() {
-        Intent intent = new Intent(this, MainActivity.class);
+    private void toLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
