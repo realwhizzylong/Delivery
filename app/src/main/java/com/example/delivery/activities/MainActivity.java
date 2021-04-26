@@ -1,10 +1,10 @@
-package com.example.delivery;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.delivery.activities;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.delivery.R;
+
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
