@@ -4,4 +4,14 @@
     <string name="delivery">Delivery</string>
     <string name="enter_name">Enter Name</string>
     <string name="enter_password">Enter Password</string>
+    <string name="name">Name</string>
+    <string name="add_phone_num">Add Phone Number</string>
+    <string name="enter_phone_num">Enter Phone Number</string>
+    <string name="update_profile_pic">Update Profile Picture</string>
+    <string name="change_password">Change Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="confirm">Confirm</string>
+    <string name="logout">Log Out</string>
 </resources>

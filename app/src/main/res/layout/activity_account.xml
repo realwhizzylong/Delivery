@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.AccountActivity">
+
+    <include layout="@layout/nav_bar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:text="@string/name"
+        android:textSize="@dimen/textSize"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="155dp"
+        android:layout_height="145dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:src="@mipmap/logo_icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:background="@drawable/text_submit"
+        android:onClick="onAddPhoneNumClick"
+        android:paddingLeft="@dimen/marginSize"
+        android:paddingRight="@dimen/marginSize"
+        android:text="@string/add_phone_num"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:background="@drawable/text_submit"
+        android:onClick="onUpdateProfilePicClick"
+        android:paddingLeft="@dimen/marginSize"
+        android:paddingRight="@dimen/marginSize"
+        android:text="@string/update_profile_pic"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:background="@drawable/text_submit"
+        android:onClick="onChangePasswordClick"
+        android:paddingLeft="@dimen/marginSize"
+        android:paddingRight="@dimen/marginSize"
+        android:text="@string/change_password"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize" />
+
+    <Button
+        style="@style/btn"
+        android:layout_marginTop="@dimen/marginSize"
+        android:onClick="onLogoutClick"
+        android:text="@string/logout" />
+
+</LinearLayout>
