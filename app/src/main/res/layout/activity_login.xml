@@ -17,12 +17,12 @@
         android:src="@mipmap/logo_icon" />
 
     <com.example.delivery.views.InputView
-        android:id="@+id/input_name"
+        android:id="@+id/input_email"
         android:layout_width="match_parent"
         android:layout_height="@dimen/inputHeight"
         android:layout_marginTop="@dimen/marginSize"
-        app:input_hint="@string/enter_name"
-        app:input_icon="@mipmap/name_icon"
+        app:input_hint="@string/enter_email"
+        app:input_icon="@mipmap/identity_icon"
         app:is_password="false" />
 
     <View style="@style/line" />

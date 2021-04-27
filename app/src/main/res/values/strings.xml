@@ -2,9 +2,10 @@
     <string name="app_name">Delivery</string>
     <string name="login">Log In</string>
     <string name="delivery">Delivery</string>
-    <string name="enter_name">Enter Name</string>
+    <string name="enter_email">Enter Email</string>
     <string name="enter_password">Enter Password</string>
     <string name="name">Name</string>
+    <string name="email">Email</string>
     <string name="add_phone_num">Add Phone Number</string>
     <string name="enter_phone_num">Enter Phone Number</string>
     <string name="update_profile_pic">Update Profile Picture</string>

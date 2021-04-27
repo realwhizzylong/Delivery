@@ -8,9 +8,9 @@ import com.example.delivery.activities.LoginActivity;
 
 public class UserUtil {
 
-    public static boolean validateLogin(Context context, String name, String password) {
-        if (name == null || name.equals("")) {
-            Toast.makeText(context, "Name is empty", Toast.LENGTH_SHORT).show();
+    public static boolean validateLogin(Context context, String email, String password) {
+        if (email == null || email.equals("")) {
+            Toast.makeText(context, "Email is empty", Toast.LENGTH_SHORT).show();
             return false;
         }
         if (password == null || password.equals((""))) {

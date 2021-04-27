@@ -8,17 +8,17 @@
     android:paddingRight="@dimen/marginSize">
 
     <ImageView
-        android:id="@+id/name"
+        android:id="@+id/identity"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:src="@mipmap/name_icon" />
+        android:src="@mipmap/identity_icon" />
 
     <EditText
         android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@null"
-        android:hint="@string/enter_name"
+        android:hint="@string/enter_email"
         android:paddingLeft="@dimen/marginSize"
         android:paddingRight="@dimen/marginSize"
         android:textSize="@dimen/textSize" />

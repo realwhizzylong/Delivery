@@ -60,7 +60,7 @@ public class InputView extends FrameLayout {
         typedArray.recycle();
 
         view = LayoutInflater.from(context).inflate(R.layout.input_view, this, false);
-        ivIcon = view.findViewById(R.id.name);
+        ivIcon = view.findViewById(R.id.identity);
         etInput = view.findViewById(R.id.input);
 
         ivIcon.setImageResource(inputIcon);
