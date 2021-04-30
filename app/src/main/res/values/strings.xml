@@ -8,6 +8,7 @@
     <string name="email">Email</string>
     <string name="add_phone_num">Add Phone Number</string>
     <string name="enter_phone_num">Enter Phone Number</string>
+    <string name="phone">Phone Number</string>
     <string name="update_profile_pic">Update Profile Picture</string>
     <string name="change_password">Change Password</string>
     <string name="current_password">Current Password</string>

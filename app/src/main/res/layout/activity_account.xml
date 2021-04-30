@@ -10,11 +10,22 @@
     <include layout="@layout/nav_bar" />
 
     <TextView
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/marginSize"
         android:text="@string/name"
+        android:textSize="@dimen/textSize"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:text="@string/phone"
         android:textSize="@dimen/textSize"
         android:textStyle="bold" />
 
