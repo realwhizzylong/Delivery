@@ -15,4 +15,8 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="confirm">Confirm</string>
     <string name="logout">Log Out</string>
+    <string name="package_list">Package List</string>
+    <string name="package_name">Package Name</string>
+    <string name="delivered">Mark As Delivered</string>
+    <string name="location">Location</string>
 </resources>
