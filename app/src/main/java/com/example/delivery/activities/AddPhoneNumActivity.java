@@ -29,7 +29,7 @@ public class AddPhoneNumActivity extends BaseActivity {
     public void onConfirmAddPhoneNumClick(View view) {
         String phoneNum = inputPhoneNum.getInputString();
 
-        if (!UserUtil.validatePhoneNum(this, phoneNum)) {
+        if (!UserUtil.addPhoneNum(this, phoneNum)) {
             return;
         }
 

@@ -8,30 +8,33 @@ import com.example.delivery.R;
 import com.example.delivery.utils.UserUtil;
 import com.example.delivery.views.InputView;
 
-public class LoginActivity extends BaseActivity {
+public class RegisterDriverActivity extends BaseActivity {
 
-    private InputView inputEmail, inputPassword;
+    private InputView inputName;
+    private InputView inputEmail;
+    private InputView inputPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
+        setContentView(R.layout.activity_register_driver);
         initView();
     }
 
     private void initView() {
-        initNavBar(false, "Log In", false);
+        initNavBar(true, "Register New Driver", false);
 
-        inputEmail = fd(R.id.login_email);
-        inputPassword = fd(R.id.login_password);
+        inputName = fd(R.id.register_name);
+        inputEmail = fd(R.id.register_email);
+        inputPassword = fd(R.id.register_password);
     }
 
-    public void onLoginClick(View view) {
+    public void onRegisterDriverClick(View view) {
+        String name = inputName.getInputString();
         String email = inputEmail.getInputString();
         String password = inputPassword.getInputString();
 
-        if (!UserUtil.login(this, email, password)) {
+        if (!UserUtil.register(this, name, email, password)) {
             return;
         }
 

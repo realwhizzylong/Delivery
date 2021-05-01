@@ -42,10 +42,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/marginSize"
         android:background="@drawable/text_submit"
-        android:onClick="onAddPhoneNumClick"
+        android:onClick="onRegisterDriver"
         android:paddingLeft="@dimen/marginSize"
         android:paddingRight="@dimen/marginSize"
-        android:text="@string/add_phone_num"
+        android:text="@string/register_driver"
         android:textColor="@color/white"
         android:textSize="@dimen/textSize" />
 
@@ -55,10 +55,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/marginSize"
         android:background="@drawable/text_submit"
-        android:onClick="onUpdateProfilePicClick"
+        android:onClick="onAddPhoneNumClick"
         android:paddingLeft="@dimen/marginSize"
         android:paddingRight="@dimen/marginSize"
-        android:text="@string/update_profile_pic"
+        android:text="@string/add_phone_num"
         android:textColor="@color/white"
         android:textSize="@dimen/textSize" />
 

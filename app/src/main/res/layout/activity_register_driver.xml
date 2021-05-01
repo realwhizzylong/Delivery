@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.LoginActivity">
+    tools:context=".activities.RegisterDriverActivity">
 
     <include layout="@layout/nav_bar" />
 
@@ -17,7 +17,18 @@
         android:src="@mipmap/logo_icon" />
 
     <com.example.delivery.views.InputView
-        android:id="@+id/login_email"
+        android:id="@+id/register_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inputHeight"
+        android:layout_marginTop="@dimen/marginSize"
+        app:input_hint="@string/enter_name"
+        app:input_icon="@mipmap/identity_icon"
+        app:is_password="false" />
+
+    <View style="@style/line" />
+
+    <com.example.delivery.views.InputView
+        android:id="@+id/register_email"
         android:layout_width="match_parent"
         android:layout_height="@dimen/inputHeight"
         android:layout_marginTop="@dimen/marginSize"
@@ -28,7 +39,7 @@
     <View style="@style/line" />
 
     <com.example.delivery.views.InputView
-        android:id="@+id/login_password"
+        android:id="@+id/register_password"
         android:layout_width="match_parent"
         android:layout_height="@dimen/inputHeight"
         android:layout_marginTop="@dimen/marginSize"
@@ -41,7 +52,7 @@
     <Button
         style="@style/btn"
         android:layout_marginTop="@dimen/marginSize"
-        android:onClick="onLoginClick"
-        android:text="@string/login" />
+        android:onClick="onRegisterDriverClick"
+        android:text="@string/register" />
 
 </LinearLayout>
