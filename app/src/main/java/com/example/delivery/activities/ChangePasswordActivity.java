@@ -33,12 +33,10 @@ public class ChangePasswordActivity extends BaseActivity {
         String newPassword = inputNewPassword.getInputString();
         String confirmPassword = inputConfirmPassword.getInputString();
 
-        if (!UserUtil.validateChangePassword(this, currentPassword, newPassword, confirmPassword)) {
+        if (!UserUtil.changePassword(this, currentPassword, newPassword, confirmPassword)) {
             return;
         }
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        UserUtil.logout(this);
     }
 }

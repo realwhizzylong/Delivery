@@ -51,16 +51,15 @@ public class RealmHelper {
         return userModel != null;
     }
 
-    public void addUserPhone(String email, String phone) {
+    public void addUserPhone(UserModel userModel, String phone) {
         realm.beginTransaction();
-        RealmQuery<UserModel> query = realm.where(UserModel.class)
-                .equalTo("email", email);
+        userModel.setPhone(phone);
+        realm.commitTransaction();
+    }
 
-        UserModel userModel = query.findFirst();
-        if (userModel != null) {
-            userModel.setPhone(phone);
-            realm.insertOrUpdate(userModel);
-        }
+    public void changePassword(UserModel userModel, String password) {
+        realm.beginTransaction();
+        userModel.setPassword(password);
         realm.commitTransaction();
     }
 }

@@ -68,15 +68,18 @@ public class UserUtil {
                 return false;
             }
         }
+
         RealmHelper realmHelper = new RealmHelper();
         String email = UserHelper.getInstance().getEmail();
-        realmHelper.addUserPhone(email, phone);
+        UserModel userModel = realmHelper.getUserByEmail(email);
+        realmHelper.addUserPhone(userModel, phone);
         UserHelper.getInstance().setPhone(phone);
         realmHelper.close();
+
         return true;
     }
 
-    public static boolean validateChangePassword(Context context, String currentPassword, String newPassword, String confirmPassword) {
+    public static boolean changePassword(Context context, String currentPassword, String newPassword, String confirmPassword) {
         if (currentPassword == null || currentPassword.equals("")) {
             Toast.makeText(context, "Current password is empty", Toast.LENGTH_SHORT).show();
             return false;
@@ -90,9 +93,22 @@ public class UserUtil {
             return false;
         }
         if (!confirmPassword.equals(newPassword)) {
-            Toast.makeText(context, "New Password and Confirm Password do not match", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Passwords do not match", Toast.LENGTH_SHORT).show();
             return false;
         }
+
+        RealmHelper realmHelper = new RealmHelper();
+        String email = UserHelper.getInstance().getEmail();
+        UserModel userModel = realmHelper.getUserByEmail(email);
+
+        if (!EncryptUtils.encryptMD5ToString(currentPassword).equals(userModel.getPassword())) {
+            Toast.makeText(context, "Current password is incorrect", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        realmHelper.changePassword(userModel, EncryptUtils.encryptMD5ToString(newPassword));
+        realmHelper.close();
+
         return true;
     }
 
@@ -140,6 +156,7 @@ public class UserUtil {
             }
         }
         realmHelper.close();
+
         return result;
     }
 
