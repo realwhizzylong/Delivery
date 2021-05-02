@@ -21,7 +21,7 @@ public class ChangePasswordActivity extends BaseActivity {
     }
 
     private void initView() {
-        initNavBar(true, "Reset Password", false);
+        initNavBar(true, "Change Password", false);
 
         inputCurrentPassword = fd(R.id.current_password);
         inputNewPassword = fd(R.id.new_password);

@@ -23,7 +23,7 @@ public class AccountActivity extends BaseActivity {
     }
 
     private void initView() {
-        initNavBar(true, "UserModel Account", false);
+        initNavBar(true, "User Account", false);
         username = fd(R.id.username);
         phone = fd(R.id.phone);
         username.setText(UserHelper.getInstance().getUserName());
