@@ -30,11 +30,12 @@
         android:textStyle="bold" />
 
     <ImageView
+        android:id="@+id/profile_picture"
         android:layout_width="155dp"
         android:layout_height="145dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/marginSize"
-        android:src="@mipmap/logo_icon" />
+        android:src="@drawable/ic_baseline_image_24" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,6 +60,19 @@
         android:paddingLeft="@dimen/marginSize"
         android:paddingRight="@dimen/marginSize"
         android:text="@string/add_phone_num"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:background="@drawable/text_submit"
+        android:onClick="onUpdateProfilePictureClick"
+        android:paddingLeft="@dimen/marginSize"
+        android:paddingRight="@dimen/marginSize"
+        android:text="@string/update_profile_picture"
         android:textColor="@color/white"
         android:textSize="@dimen/textSize" />
 

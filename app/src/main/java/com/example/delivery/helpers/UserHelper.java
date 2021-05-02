@@ -21,6 +21,7 @@ public class UserHelper {
     private String email;
     private String userName;
     private String phone;
+    private String profilePicture;
 
     public String getEmail() {
         return email;
@@ -44,5 +45,13 @@ public class UserHelper {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
 }

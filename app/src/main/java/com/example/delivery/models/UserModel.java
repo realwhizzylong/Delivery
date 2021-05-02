@@ -17,6 +17,8 @@ public class UserModel extends RealmObject {
 
     private String phone;
 
+    private String profilePicture;
+
     public String getEmail() {
         return email;
     }
@@ -33,11 +35,11 @@ public class UserModel extends RealmObject {
         this.password = password;
     }
 
-    public String getUsername() {
+    public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public void setUsername(String userName) {
         this.userName = userName;
     }
 
@@ -49,4 +51,11 @@ public class UserModel extends RealmObject {
         this.phone = phone;
     }
 
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
 }

@@ -1,7 +1,10 @@
 package com.example.delivery.helpers;
 
+import android.net.Uri;
+
 import com.example.delivery.models.UserModel;
 
+import java.net.URL;
 import java.util.List;
 
 import io.realm.Realm;
@@ -60,6 +63,12 @@ public class RealmHelper {
     public void changePassword(UserModel userModel, String password) {
         realm.beginTransaction();
         userModel.setPassword(password);
+        realm.commitTransaction();
+    }
+
+    public void updateProfilePicture(UserModel userModel, String imageURL) {
+        realm.beginTransaction();
+        userModel.setProfilePicture(imageURL);
         realm.commitTransaction();
     }
 }

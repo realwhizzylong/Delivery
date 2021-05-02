@@ -40,11 +40,10 @@ public class UserUtil {
 
         RealmHelper realmHelper2 = new RealmHelper();
         UserModel userModel = realmHelper2.getUserByEmail(email);
-        UserHelper.getInstance().setUserName(userModel.getUsername());
+        UserHelper.getInstance().setUserName(userModel.getUserName());
         UserHelper.getInstance().setEmail(email);
-        if (userModel.getPhone() != null) {
-            UserHelper.getInstance().setPhone(userModel.getPhone());
-        }
+        UserHelper.getInstance().setPhone(userModel.getPhone());
+        UserHelper.getInstance().setProfilePicture(userModel.getProfilePicture());
         realmHelper2.close();
 
         return true;
@@ -74,6 +73,21 @@ public class UserUtil {
         UserModel userModel = realmHelper.getUserByEmail(email);
         realmHelper.addUserPhone(userModel, phone);
         UserHelper.getInstance().setPhone(phone);
+        realmHelper.close();
+
+        return true;
+    }
+
+    public static boolean updateProfilePicture(Context context, String imageURL) {
+        if (imageURL == null || imageURL.equals("")) {
+            Toast.makeText(context, "No picture uploaded", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        RealmHelper realmHelper = new RealmHelper();
+        String email = UserHelper.getInstance().getEmail();
+        UserModel userModel = realmHelper.getUserByEmail(email);
+        realmHelper.updateProfilePicture(userModel, imageURL);
         realmHelper.close();
 
         return true;
@@ -132,7 +146,7 @@ public class UserUtil {
         }
 
         UserModel userModel = new UserModel();
-        userModel.setUserName(name);
+        userModel.setUsername(name);
         userModel.setEmail(email);
         userModel.setPassword(EncryptUtils.encryptMD5ToString(password));
 

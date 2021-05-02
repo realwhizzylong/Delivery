@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.delivery">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -10,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Delivery">
-        <activity android:name=".activities.RegisterDriverActivity"></activity>
+        <activity android:name=".activities.UpdateProfilePictureActivity" />
+        <activity android:name=".activities.RegisterDriverActivity" />
         <activity android:name=".activities.AddPhoneNumActivity" />
         <activity android:name=".activities.ChangePasswordActivity" />
         <activity android:name=".activities.AccountActivity" />
