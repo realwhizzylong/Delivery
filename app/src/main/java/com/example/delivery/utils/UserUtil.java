@@ -90,6 +90,8 @@ public class UserUtil {
         realmHelper.updateProfilePicture(userModel, imageURL);
         realmHelper.close();
 
+        UserHelper.getInstance().setProfilePicture(imageURL);
+
         return true;
     }
 

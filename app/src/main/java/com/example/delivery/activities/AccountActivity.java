@@ -33,7 +33,8 @@ public class AccountActivity extends BaseActivity {
         username.setText(UserHelper.getInstance().getUserName());
         phone.setText(UserHelper.getInstance().getPhone());
         if (UserHelper.getInstance().getProfilePicture() != null && !UserHelper.getInstance().getProfilePicture().equals("")) {
-            profilePicture.setImageURI(Uri.parse(UserHelper.getInstance().getProfilePicture()));
+            Uri uri = Uri.parse(UserHelper.getInstance().getProfilePicture());
+            profilePicture.setImageURI(uri);
         }
     }
 

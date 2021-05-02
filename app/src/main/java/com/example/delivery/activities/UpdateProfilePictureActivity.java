@@ -3,6 +3,7 @@ package com.example.delivery.activities;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -71,8 +72,10 @@ public class UpdateProfilePictureActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == IMAGE_CODE && resultCode == RESULT_OK) {
-            imageView.setImageURI(data.getData());
+            Uri uri = data.getData();
+            imageView.setImageURI(uri);
             mData = data;
+            getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
         }
     }
 
