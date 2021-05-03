@@ -14,12 +14,13 @@
         android:theme="@style/Theme.Delivery">
         <activity android:name=".activities.UpdateProfilePictureActivity" />
         <activity android:name=".activities.RegisterDriverActivity" />
+        <activity android:name=".activities.RegisterManagerActivity" />
         <activity android:name=".activities.AddPhoneNumActivity" />
         <activity android:name=".activities.ChangePasswordActivity" />
         <activity android:name=".activities.AccountActivity" />
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.WelcomeActivity">
+        <activity android:name=".activities.WelcomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

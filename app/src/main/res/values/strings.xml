@@ -24,4 +24,5 @@
     <string name="register">register</string>
     <string name="update_profile_picture">Update Profile Picture</string>
     <string name="upload_picture">Upload Picture</string>
+    <string name="register_as_manager">Register As Manager</string>
 </resources>

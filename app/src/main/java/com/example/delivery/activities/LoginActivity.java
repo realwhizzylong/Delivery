@@ -39,4 +39,10 @@ public class LoginActivity extends BaseActivity {
         startActivity(intent);
         finish();
     }
+
+    public void onRegisterManagerClick(View view) {
+        Intent intent = new Intent(this, RegisterManagerActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
