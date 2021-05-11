@@ -8,8 +8,6 @@ import com.example.delivery.R;
 import com.example.delivery.utils.UserUtil;
 import com.example.delivery.views.InputView;
 
-import io.realm.mongodb.User;
-
 public class LoginActivity extends BaseActivity {
 
     private InputView inputEmail, inputPassword;
@@ -36,11 +34,11 @@ public class LoginActivity extends BaseActivity {
         if (!UserUtil.login(this, email, password)) {
             return;
         }
-        if(UserUtil.isManager(email)){
+        if (UserUtil.isManager(email)) {
             Intent intent1 = new Intent(this, ManagerActivity.class);
             startActivity(intent1);
             finish();
-        }else{
+        } else {
             Intent intent2 = new Intent(this, MainActivity.class);
             startActivity(intent2);
             finish();
@@ -49,8 +47,6 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void onRegisterManagerClick(View view) {
-        Intent intent = new Intent(this, RegisterManagerActivity.class);
-        startActivity(intent);
-        finish();
+        startActivity(new Intent(this, RegisterManagerActivity.class));
     }
 }

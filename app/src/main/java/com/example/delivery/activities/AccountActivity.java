@@ -6,15 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.delivery.R;
-import com.example.delivery.helpers.RealmHelper;
 import com.example.delivery.helpers.UserHelper;
-import com.example.delivery.models.UserModel;
 import com.example.delivery.utils.UserUtil;
-
-import java.util.List;
 
 public class AccountActivity extends BaseActivity {
 
@@ -45,12 +40,10 @@ public class AccountActivity extends BaseActivity {
 
 
     public void onRegisterDriver(View view) {
-
         String email = UserHelper.getInstance().getEmail();
-        if(UserUtil.isRegisterAuthority(this, email)){
+        if (UserUtil.isRegisterAuthority(this, email)) {
             startActivity(new Intent(this, RegisterDriverActivity.class));
         }
-
     }
 
     public void onAddPhoneNumClick(View view) {

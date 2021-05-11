@@ -176,26 +176,18 @@ public class UserUtil {
         return result;
     }
 
-    public static boolean isManager(String email){
-        boolean result = false;
-
-            if(email.equals("manager@example.com")){
-                result = true;
-
-            }
-
-        return result;
+    public static boolean isManager(String email) {
+        return email.equals("manager@example.com");
     }
 
-    public static boolean isRegisterAuthority(Context context, String email){
+    public static boolean isRegisterAuthority(Context context, String email) {
         boolean result = false;
 
-            if(email.equals("manager@example.com")){
-                result = true;
-            }else{
-                Toast.makeText(context, "You have no authority to register a driver", Toast.LENGTH_SHORT).show();
-            }
-
+        if (email.equals("manager@example.com")) {
+            result = true;
+        } else {
+            Toast.makeText(context, "You have no authority to register a driver", Toast.LENGTH_SHORT).show();
+        }
 
         return result;
     }

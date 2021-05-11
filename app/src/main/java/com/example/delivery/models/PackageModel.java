@@ -5,40 +5,47 @@ import io.realm.annotations.Required;
 
 public class PackageModel {
 
-    private String driver_id;
+    @PrimaryKey
+    private String packageId;
 
     @Required
-    private String sites;
+    private String site;
 
     @Required
-    private String vendors;
+    private String vendor;
 
-    private String package_id;
+    @Required
+    private UserModel driver;
 
-    public String getDriver_id(){
-        return driver_id;
+    public String getPackageId() {
+        return packageId;
     }
 
-    public void setDriver_id(String driver_id){
-        this.driver_id = driver_id;
+    public void setPackageId(String packageId) {
+        this.packageId = packageId;
     }
 
-    public String getSites(){
-        return sites;
+    public String getSite() {
+        return site;
     }
 
-    public void setSites(String sites){
-        this.sites = sites;
+    public void setSite(String site) {
+        this.site = site;
     }
 
-    public String getVendors(){
-        return vendors;
+    public String getVendor() {
+        return vendor;
     }
 
-    public void setVendors(String vendors){
-        this.vendors = vendors;
+    public void setVendor(String vendor) {
+        this.vendor = vendor;
     }
 
+    public UserModel getDriver() {
+        return driver;
+    }
 
-
+    public void setDriver(UserModel driver) {
+        this.driver = driver;
+    }
 }
