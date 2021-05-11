@@ -5,7 +5,6 @@ import io.realm.annotations.Required;
 
 public class PackageModel {
 
-    @PrimaryKey
     private String driver_id;
 
     @Required
@@ -13,6 +12,8 @@ public class PackageModel {
 
     @Required
     private String vendors;
+
+    private String package_id;
 
     public String getDriver_id(){
         return driver_id;
