@@ -38,14 +38,6 @@ public class AccountActivity extends BaseActivity {
         }
     }
 
-
-    public void onRegisterDriver(View view) {
-        String email = UserHelper.getInstance().getEmail();
-        if (UserUtil.isRegisterAuthority(this, email)) {
-            startActivity(new Intent(this, RegisterDriverActivity.class));
-        }
-    }
-
     public void onAddPhoneNumClick(View view) {
         startActivity(new Intent(this, AddPhoneNumActivity.class));
     }

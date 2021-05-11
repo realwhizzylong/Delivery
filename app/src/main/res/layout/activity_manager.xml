@@ -9,12 +9,18 @@
 
     <include layout="@layout/nav_bar" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-    </ScrollView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:background="@drawable/text_submit"
+        android:onClick="onRegisterDriver"
+        android:paddingLeft="@dimen/marginSize"
+        android:paddingRight="@dimen/marginSize"
+        android:text="@string/register_driver"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize" />
 
 
 </LinearLayout>

@@ -38,7 +38,7 @@ public class RegisterDriverActivity extends BaseActivity {
             return;
         }
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ManagerActivity.class);
         startActivity(intent);
         finish();
     }

@@ -15,7 +15,6 @@ public class PackageModel extends RealmObject {
     @Required
     private String vendor;
 
-    @Required
     private UserModel driver;
 
     public String getPackageId() {
