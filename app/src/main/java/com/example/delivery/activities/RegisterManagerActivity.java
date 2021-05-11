@@ -25,7 +25,7 @@ public class RegisterManagerActivity extends BaseActivity {
     }
 
     private void initView() {
-        initNavBar(false, "Register New Manager", false);
+        initNavBar(true, "Register New Manager", false);
         inputName = fd(R.id.register_manager_name);
         inputEmail = fd(R.id.register_manager_email);
         inputPassword = fd(R.id.register_manager_password);

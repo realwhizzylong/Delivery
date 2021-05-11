@@ -176,4 +176,41 @@ public class UserUtil {
         return result;
     }
 
+    public static boolean isManager(String email){
+        boolean result = false;
+
+        RealmHelper realmHelper = new RealmHelper();
+        List<UserModel> list = realmHelper.getAllUsers();
+
+        for(UserModel userModel : list){
+            if(email.equals("manager@example.com")){
+                result = true;
+                break;
+            }
+        }
+        realmHelper.close();
+
+        return result;
+    }
+
+    public static boolean isRegisterAuthority(Context context, String email){
+        boolean result = false;
+
+        RealmHelper realmHelper = new RealmHelper();
+        List<UserModel> list = realmHelper.getAllUsers();
+
+        for(UserModel userModel : list){
+            if(email.equals("manager@example.com")){
+                result = true;
+                break;
+            }else{
+                Toast.makeText(context, "You have no authority to register a driver", Toast.LENGTH_SHORT).show();
+            }
+        }
+        realmHelper.close();
+
+        return result;
+    }
+
+
 }
