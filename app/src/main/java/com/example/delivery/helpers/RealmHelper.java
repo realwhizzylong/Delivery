@@ -5,6 +5,8 @@ import android.net.Uri;
 import com.example.delivery.models.SiteModel;
 import com.example.delivery.models.UserModel;
 import com.example.delivery.models.VendorModel;
+import com.example.delivery.models.PackageModel;
+
 
 import java.net.URL;
 import java.util.List;
@@ -95,6 +97,18 @@ public class RealmHelper {
     public void saveSite(SiteModel siteModel) {
         realm.beginTransaction();
         realm.insert(siteModel);
+        realm.commitTransaction();
+    }
+
+    public List<PackageModel> getAllPackage(){
+        RealmQuery<PackageModel> query = realm.where(PackageModel.class);
+        RealmResults<PackageModel> results = query.findAll();
+        return results;
+    }
+
+    public void savePackage(PackageModel packageModel){
+        realm.beginTransaction();
+        realm.insert(packageModel);
         realm.commitTransaction();
     }
 }

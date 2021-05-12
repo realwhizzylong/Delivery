@@ -28,7 +28,7 @@
     <Button
         style="@style/btn"
         android:layout_marginTop="@dimen/marginSize"
-        android:onClick="onCreateBuildingSiteClick"
+        android:onClick="onCreatePackageClick"
         android:text="@string/create" />
 
 </LinearLayout>
