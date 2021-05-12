@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.delivery.R;
-import com.example.delivery.helpers.UserHelper;
-import com.example.delivery.utils.UserUtil;
 
 public class ManagerActivity extends BaseActivity {
 
@@ -18,13 +16,22 @@ public class ManagerActivity extends BaseActivity {
     }
 
     public void initView() {
-        initNavBar(false, "Assign", true);
+        initNavBar(false, "Manager", true);
     }
 
-    public void onRegisterDriver(View view) {
-        String email = UserHelper.getInstance().getEmail();
-        if (UserUtil.isRegisterAuthority(this, email)) {
-            startActivity(new Intent(this, RegisterDriverActivity.class));
-        }
+    public void onDrivers(View view) {
+        startActivity(new Intent(this, DriversActivity.class));
+    }
+
+    public void onVendors(View view) {
+        startActivity(new Intent(this, VendorsActivity.class));
+    }
+
+    public void onBuildingSites(View view) {
+        startActivity(new Intent(this, BuildingSitesActivity.class));
+    }
+
+    public void onCreatePackage(View view) {
+        startActivity(new Intent(this, CreatePackageActivity.class));
     }
 }

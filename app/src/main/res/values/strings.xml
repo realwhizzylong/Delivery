@@ -25,4 +25,13 @@
     <string name="update_profile_picture">Update Profile Picture</string>
     <string name="upload_picture">Upload Picture</string>
     <string name="register_as_manager">Register As Manager</string>
+    <string name="create_vendor">Create Vendor</string>
+    <string name="vendors">Vendors</string>
+    <string name="building_sites">Building Sites</string>
+    <string name="drivers">Drivers</string>
+    <string name="create_building_site">Create Building Site</string>
+    <string name="enter_vendor_name">Enter Vendor Name</string>
+    <string name="create">Create</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="create_package">Create New Package</string>
 </resources>

@@ -2,7 +2,9 @@ package com.example.delivery.helpers;
 
 import android.net.Uri;
 
+import com.example.delivery.models.SiteModel;
 import com.example.delivery.models.UserModel;
+import com.example.delivery.models.VendorModel;
 
 import java.net.URL;
 import java.util.List;
@@ -69,6 +71,30 @@ public class RealmHelper {
     public void updateProfilePicture(UserModel userModel, String imageURL) {
         realm.beginTransaction();
         userModel.setProfilePicture(imageURL);
+        realm.commitTransaction();
+    }
+
+    public List<VendorModel> getAllVendors() {
+        RealmQuery<VendorModel> query = realm.where(VendorModel.class);
+        RealmResults<VendorModel> results = query.findAll();
+        return results;
+    }
+
+    public void saveVendor(VendorModel vendorModel) {
+        realm.beginTransaction();
+        realm.insert(vendorModel);
+        realm.commitTransaction();
+    }
+
+    public List<SiteModel> getAllSites() {
+        RealmQuery<SiteModel> query = realm.where(SiteModel.class);
+        RealmResults<SiteModel> results = query.findAll();
+        return results;
+    }
+
+    public void saveSite(SiteModel siteModel) {
+        realm.beginTransaction();
+        realm.insert(siteModel);
         realm.commitTransaction();
     }
 }

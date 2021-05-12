@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.delivery.R;
+import com.example.delivery.helpers.UserHelper;
 import com.example.delivery.utils.UserUtil;
 
 public class UpdateProfilePictureActivity extends BaseActivity {
@@ -86,8 +87,15 @@ public class UpdateProfilePictureActivity extends BaseActivity {
             return;
         }
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        String email = UserHelper.getInstance().getEmail();
+        if (UserUtil.isManager(email)) {
+            Intent intent = new Intent(this, ManagerActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }

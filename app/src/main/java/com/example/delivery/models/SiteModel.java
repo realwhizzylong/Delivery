@@ -6,13 +6,13 @@ import io.realm.annotations.PrimaryKey;
 public class SiteModel extends RealmObject {
 
     @PrimaryKey
-    private String siteName;
+    private String address;
 
-    public String getSiteName() {
-        return siteName;
+    public String getAddress() {
+        return address;
     }
 
-    public void setSiteName(String siteName) {
-        this.siteName = siteName;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

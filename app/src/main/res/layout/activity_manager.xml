@@ -15,10 +15,49 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/marginSize"
         android:background="@drawable/text_submit"
-        android:onClick="onRegisterDriver"
+        android:onClick="onDrivers"
         android:paddingLeft="@dimen/marginSize"
         android:paddingRight="@dimen/marginSize"
-        android:text="@string/register_driver"
+        android:text="@string/drivers"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:background="@drawable/text_submit"
+        android:onClick="onVendors"
+        android:paddingLeft="@dimen/marginSize"
+        android:paddingRight="@dimen/marginSize"
+        android:text="@string/vendors"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:background="@drawable/text_submit"
+        android:onClick="onBuildingSites"
+        android:paddingLeft="@dimen/marginSize"
+        android:paddingRight="@dimen/marginSize"
+        android:text="@string/building_sites"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:background="@drawable/text_submit"
+        android:onClick="onCreatePackage"
+        android:paddingLeft="@dimen/marginSize"
+        android:paddingRight="@dimen/marginSize"
+        android:text="@string/create_package"
         android:textColor="@color/white"
         android:textSize="@dimen/textSize" />
 

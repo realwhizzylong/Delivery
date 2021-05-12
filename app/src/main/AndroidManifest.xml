@@ -12,6 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Delivery">
+        <activity android:name=".activities.CreatePackageActivity"></activity>
+        <activity android:name=".activities.CreateBuildingSiteActivity" />
+        <activity android:name=".activities.CreateVendorActivity" />
+        <activity android:name=".activities.BuildingSitesActivity" />
+        <activity android:name=".activities.VendorsActivity" />
+        <activity android:name=".activities.DriversActivity" />
         <activity android:name=".activities.UpdateProfilePictureActivity" />
         <activity android:name=".activities.RegisterDriverActivity" />
         <activity android:name=".activities.RegisterManagerActivity" />
@@ -20,8 +26,8 @@
         <activity android:name=".activities.AccountActivity" />
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.ManagerActivity"/>
-        <activity android:name=".activities.WelcomeActivity" >
+        <activity android:name=".activities.ManagerActivity" />
+        <activity android:name=".activities.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
