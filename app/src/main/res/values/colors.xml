@@ -10,4 +10,7 @@
     <color name="green">#06BD30</color>
     <color name="light_grey">#C3C3C3</color>
     <color name="dark_grey">#3F3F3F</color>
+    <color name="coin_bg">#F8F8F8</color>
+    <color name="gray_9b">#9B9B9B</color>
+    <color name="ensure_txt_color">#4A90E2</color>
 </resources>

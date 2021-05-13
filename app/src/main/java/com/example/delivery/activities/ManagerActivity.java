@@ -31,7 +31,7 @@ public class ManagerActivity extends BaseActivity {
         startActivity(new Intent(this, BuildingSitesActivity.class));
     }
 
-    public void onCreatePackage(View view) {
-        startActivity(new Intent(this, CreatePackageActivity.class));
+    public void onPackages(View view) {
+        startActivity(new Intent(this, PackagesActivity.class));
     }
 }

@@ -7,6 +7,7 @@ import com.example.delivery.helpers.RealmHelper;
 import com.example.delivery.models.VendorModel;
 
 import java.util.List;
+import java.util.UUID;
 
 public class VendorUtil {
 
@@ -22,6 +23,7 @@ public class VendorUtil {
         }
 
         VendorModel vendorModel = new VendorModel();
+        vendorModel.setVentorId(UUID.randomUUID().toString());
         vendorModel.setVendorName(vendor);
 
         RealmHelper realmHelper = new RealmHelper();

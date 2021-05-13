@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:orientation="horizontal"
     android:padding="@dimen/marginSize">
 
     <TextView
+        android:id="@+id/item_package_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/package_name"
@@ -14,24 +14,13 @@
         android:textSize="@dimen/textSizeSmall"
         android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/marginSize"
-        android:text="@string/location"
-        android:textColor="@color/black"
-        android:textSize="@dimen/textSizeSmall" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="@dimen/marginSize"
-        android:background="@drawable/text_submit"
-        android:paddingLeft="@dimen/marginSize"
-        android:paddingRight="@dimen/marginSize"
-        android:text="@string/delivered"
-        android:textColor="@color/white"
-        android:textSize="@dimen/textSizeSmall" />
+    <ImageView
+        android:id="@+id/item_package_state"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/finish" />
 
-</LinearLayout>
+
+</RelativeLayout>

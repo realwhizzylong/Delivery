@@ -7,6 +7,7 @@ import com.example.delivery.helpers.RealmHelper;
 import com.example.delivery.models.SiteModel;
 
 import java.util.List;
+import java.util.UUID;
 
 public class SiteUtil {
 
@@ -22,6 +23,7 @@ public class SiteUtil {
         }
 
         SiteModel siteModel = new SiteModel();
+        siteModel.setSitId(UUID.randomUUID().toString());
         siteModel.setAddress(address);
 
         RealmHelper realmHelper = new RealmHelper();

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.delivery.R;
 import com.example.delivery.helpers.UserHelper;
+import com.example.delivery.utils.UserInforSPUtils;
 import com.example.delivery.utils.UserUtil;
 
 public class AccountActivity extends BaseActivity {
@@ -51,6 +52,12 @@ public class AccountActivity extends BaseActivity {
     }
 
     public void onLogoutClick(View view) {
+        // remove account info
+        UserInforSPUtils.saveEmail("");
+        UserInforSPUtils.saveName("");
+        UserInforSPUtils.savePhone("");
+        UserInforSPUtils.savePic("");
+
         UserUtil.logout(this);
     }
 }

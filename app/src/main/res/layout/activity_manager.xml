@@ -54,10 +54,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/marginSize"
         android:background="@drawable/text_submit"
-        android:onClick="onCreatePackage"
+        android:onClick="onPackages"
         android:paddingLeft="@dimen/marginSize"
         android:paddingRight="@dimen/marginSize"
-        android:text="@string/create_package"
+        android:text="@string/packages"
         android:textColor="@color/white"
         android:textSize="@dimen/textSize" />
 

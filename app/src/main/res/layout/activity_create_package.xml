@@ -25,6 +25,67 @@
         app:input_icon="@mipmap/identity_icon"
         app:is_password="false" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/marginSize">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/building_sites" />
+
+        <org.angmarch.views.NiceSpinner
+            android:id="@+id/site_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/building_sites" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/marginSize">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vendors" />
+
+        <org.angmarch.views.NiceSpinner
+            android:id="@+id/vendor_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vendors" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/marginSize">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver" />
+
+        <org.angmarch.views.NiceSpinner
+            android:id="@+id/driver_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/drivers" />
+
+    </LinearLayout>
+
+
     <Button
         style="@style/btn"
         android:layout_marginTop="@dimen/marginSize"

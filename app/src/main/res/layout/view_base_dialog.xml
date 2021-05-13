@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/lib_shape_white_round"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:padding="10px"
+        android:textSize="17sp"
+        android:text="sss" />
+
+    <View
+        android:id="@+id/dialog_title_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/coin_bg" />
+
+
+    <LinearLayout
+        android:id="@+id/dialog_LL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"></LinearLayout>
+
+
+    <View
+        android:id="@+id/dialog_message_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/coin_bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/dialog_cancle"
+            android:layout_width="0px"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/gray_9b"
+            android:text="NO" />
+
+        <View
+            android:id="@+id/dialog_btn_divider"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/coin_bg" />
+
+        <TextView
+            android:id="@+id/dialog_call"
+            android:layout_width="0px"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="YES"
+            android:textColor="@color/ensure_txt_color" />
+    </LinearLayout>
+</LinearLayout>

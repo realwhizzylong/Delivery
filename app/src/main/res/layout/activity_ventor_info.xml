@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/nav_bar" />
+
+    <ImageView
+        android:layout_width="155dp"
+        android:layout_height="145dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginSize"
+        android:src="@mipmap/logo_icon" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/marginSize">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driver" />
+
+
+        <EditText
+            android:id="@+id/ventor_name"
+            android:background="@null"
+            android:editable="true"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_height="wrap_content"
+            android:text="@string/building_sites" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/btn2"
+            android:layout_marginTop="@dimen/marginSize"
+            android:layout_weight="1"
+            android:onClick="onDeleteVentor"
+            android:text="@string/delete" />
+
+        <Button
+            style="@style/btn2"
+            android:layout_marginTop="@dimen/marginSize"
+            android:layout_weight="1"
+            android:onClick="onUpdateVentor"
+            android:text="@string/modify" />
+
+    </LinearLayout>
+
+</LinearLayout>

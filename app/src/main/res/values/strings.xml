@@ -29,9 +29,14 @@
     <string name="vendors">Vendors</string>
     <string name="building_sites">Building Sites</string>
     <string name="drivers">Drivers</string>
+    <string name="driver">Driver</string>
     <string name="create_building_site">Create Building Site</string>
     <string name="enter_vendor_name">Enter Vendor Name</string>
     <string name="create">Create</string>
+    <string name="delete">Delete</string>
+    <string name="deliver">Delivered</string>
+    <string name="modify">Modify</string>
     <string name="enter_address">Enter Address</string>
     <string name="create_package">Create New Package</string>
+    <string name="packages">Packages</string>
 </resources>

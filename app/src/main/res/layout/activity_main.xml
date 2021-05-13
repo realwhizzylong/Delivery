@@ -9,33 +9,49 @@
 
     <include layout="@layout/nav_bar" />
 
-    <ScrollView
+    <!--    <ScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:orientation="vertical">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginLeft="@dimen/marginSize"-->
+    <!--                android:layout_marginTop="@dimen/marginSize"-->
+    <!--                android:layout_marginBottom="@dimen/marginSize"-->
+    <!--                android:gravity="center_vertical"-->
+    <!--                android:orientation="horizontal">-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:text="@string/package_list"-->
+    <!--                    android:textColor="@color/black"-->
+    <!--                    android:textSize="@dimen/textSize"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--            </LinearLayout>-->
+
+    <!--            -->
+
+    <!--        </LinearLayout>-->
+
+    <!--    </ScrollView>-->
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeLayout_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/marginSize"
-                android:layout_marginTop="@dimen/marginSize"
-                android:layout_marginBottom="@dimen/marginSize"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/package_list"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/textSize"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_list"
@@ -43,9 +59,20 @@
                 android:layout_height="wrap_content">
 
             </androidx.recyclerview.widget.RecyclerView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        </LinearLayout>
 
-    </ScrollView>
+<!--        <ImageView-->
+<!--            android:id="@+id/notify_img"-->
+<!--            android:visibility="gone"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="bottom|right"-->
+<!--            android:layout_marginRight="@dimen/marginSize"-->
+<!--            android:layout_marginBottom="@dimen/marginSize"-->
+<!--            android:src="@mipmap/notify" />-->
+
+    </FrameLayout>
+
 
 </LinearLayout>

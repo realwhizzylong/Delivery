@@ -4,7 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.blankj.utilcode.util.GsonUtils;
+import com.blankj.utilcode.util.LogUtils;
 import com.example.delivery.R;
+import com.example.delivery.helpers.RealmHelper;
+import com.example.delivery.helpers.UserHelper;
+import com.example.delivery.models.UserModel;
+import com.example.delivery.utils.UserInforSPUtils;
 import com.example.delivery.utils.UserUtil;
 import com.example.delivery.views.InputView;
 
@@ -34,15 +40,24 @@ public class LoginActivity extends BaseActivity {
         if (!UserUtil.login(this, email, password)) {
             return;
         }
+
+        RealmHelper realmHelper2 = new RealmHelper();
+        UserModel userModel = realmHelper2.getUserByEmail(email);
+        UserInforSPUtils.saveEmail(userModel.getEmail());
+        UserInforSPUtils.saveName(userModel.getUserName());
+        UserInforSPUtils.savePhone(userModel.getPhone());
+        UserInforSPUtils.savePic(userModel.getProfilePicture());
+        realmHelper2.close();
+
+
         if (UserUtil.isManager(email)) {
             Intent intent1 = new Intent(this, ManagerActivity.class);
             startActivity(intent1);
-            finish();
         } else {
             Intent intent2 = new Intent(this, MainActivity.class);
             startActivity(intent2);
-            finish();
         }
+        finish();
 
     }
 
