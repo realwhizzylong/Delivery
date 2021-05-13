@@ -8,9 +8,7 @@ import com.example.delivery.R;
 import com.example.delivery.utils.UserUtil;
 import com.example.delivery.views.InputView;
 
-/**
- *
- */
+
 public class RegisterManagerActivity extends BaseActivity {
 
     private InputView inputName;

@@ -47,7 +47,6 @@ public class NotifyActivity extends BaseActivity implements SwipeRefreshLayout.O
 
     private void initdata() {
         RealmHelper realmHelper = new RealmHelper();
-//        List<PackageModel> list = realmHelper.getPackageByUser("Tom");
         List<PackageModel> list = realmHelper.getPackageByUser(UserInforSPUtils.getName());
         realmHelper.close();
 

@@ -38,6 +38,13 @@ public class UserUtil {
             return false;
         }
 
+        RealmHelper realmHelper2 = new RealmHelper();
+        UserModel userModel = realmHelper2.getUserByEmail(email);
+        UserHelper.getInstance().setUserName(userModel.getUserName());
+        UserHelper.getInstance().setEmail(email);
+        UserHelper.getInstance().setPhone(userModel.getPhone());
+        UserHelper.getInstance().setProfilePicture(userModel.getProfilePicture());
+        realmHelper2.close();
 
         return true;
     }
@@ -172,5 +179,5 @@ public class UserUtil {
     public static boolean isManager(String email) {
         return email.equals("manager@example.com");
     }
-    
+
 }

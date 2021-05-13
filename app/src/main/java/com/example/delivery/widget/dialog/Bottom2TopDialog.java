@@ -12,9 +12,6 @@ import androidx.annotation.NonNull;
 import com.example.delivery.R;
 
 
-/**
- * @author guosir
- */
 public abstract class Bottom2TopDialog extends Dialog {
 
     public Bottom2TopDialog(@NonNull Context context) {

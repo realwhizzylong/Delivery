@@ -104,7 +104,7 @@ public class PackageInfoActivity extends BaseActivity implements OnSpinnerItemSe
 
     public void deletePackage(View view) {
 
-        new TextDialog(this).showDialog("Notification", "Are you sure to delete this package", "Yse", "No", new DialogCallBack() {
+        new TextDialog(this).showDialog("Notification", "Are you sure to delete this package", "Yes", "No", new DialogCallBack() {
             @Override
             public void doselectok() {
                 super.doselectok();
@@ -126,7 +126,7 @@ public class PackageInfoActivity extends BaseActivity implements OnSpinnerItemSe
 
     public void updatePackage(View view) {
 
-        new TextDialog(this).showDialog("Notification", "Are you sure to modify this package", "Yse", "No", new DialogCallBack() {
+        new TextDialog(this).showDialog("Notification", "Are you sure to modify this package", "Yes", "No", new DialogCallBack() {
             @Override
             public void doselectok() {
                 super.doselectok();

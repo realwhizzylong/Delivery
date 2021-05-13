@@ -48,7 +48,6 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
     private void initData() {
         RealmHelper realmHelper = new RealmHelper();
         List<PackageModel> list = realmHelper.getPackageByUser(UserInforSPUtils.getName());
-//        List<PackageModel> list = realmHelper.getPackageByUser("Tom");
         realmHelper.close();
         packageAdapter.setNewData(list);
 
@@ -72,7 +71,6 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
     private void initView() {
         initNavBar(false, "Delivery", true);
 
-//        notify_img = fd(R.id.notify_img);
         mRvlist = fd(R.id.rv_list);
         packageAdapter = new PackageAdapter();
         mRvlist.setLayoutManager(new LinearLayoutManager(this));

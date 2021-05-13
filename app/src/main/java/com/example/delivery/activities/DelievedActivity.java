@@ -60,7 +60,7 @@ public class DelievedActivity extends BaseActivity {
     }
 
     public void markDelieved(View view) {
-        new TextDialog(this).showDialog("Notification", "Are you sure to mark as delivered", "Yse", "No", new DialogCallBack() {
+        new TextDialog(this).showDialog("Notification", "Are you sure to mark as delivered", "Yes", "No", new DialogCallBack() {
             @Override
             public void doselectok() {
                 super.doselectok();

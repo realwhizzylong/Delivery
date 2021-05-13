@@ -47,7 +47,7 @@ public class DriverInfoActivity extends BaseActivity {
 
     public void onDelete(View view) {
 
-        new TextDialog(this).showDialog("Notification", "Are you sure to delete this driver", "Yse", "No", new DialogCallBack() {
+        new TextDialog(this).showDialog("Notification", "Are you sure to delete this driver", "Yes", "No", new DialogCallBack() {
             @Override
             public void doselectok() {
                 super.doselectok();
@@ -60,7 +60,7 @@ public class DriverInfoActivity extends BaseActivity {
 
     public void onUpdateDriver(View view) {
 
-        new TextDialog(this).showDialog("Notification", "Are you sure to modify this driver name", "Yse", "No", new DialogCallBack() {
+        new TextDialog(this).showDialog("Notification", "Are you sure to modify this driver name", "Yes", "No", new DialogCallBack() {
             @Override
             public void doselectok() {
                 super.doselectok();

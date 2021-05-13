@@ -9,10 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 
 
-/**
- * Created by HuangJin on 2018/3/29.
- */
-
 public class BaseDialog extends Dialog {
     public BaseDialog(@NonNull Context context) {
         super(context);

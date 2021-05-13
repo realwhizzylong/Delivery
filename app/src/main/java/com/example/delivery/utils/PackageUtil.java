@@ -35,7 +35,7 @@ public class PackageUtil {
         }
 
         if (!isDriverAvailable(driver)) {
-            Toast.makeText(context, "Driver not exsit", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Driver does not exist", Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -86,7 +86,7 @@ public class PackageUtil {
 
     public static boolean deletePackage(Context context, String packageName) {
         if (isPackageAvailable(packageName)) {
-            Toast.makeText(context, "Package is not exist", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Package does not exist", Toast.LENGTH_SHORT).show();
             return false;
         }
         RealmHelper realmHelper = new RealmHelper();

@@ -45,7 +45,7 @@ public class SiteInfoActivity extends BaseActivity{
 
     public void onDeleteSite(View view) {
 
-        new TextDialog(this).showDialog("Notification", "Are you sure to delete this site", "Yse", "No", new DialogCallBack() {
+        new TextDialog(this).showDialog("Notification", "Are you sure to delete this site", "Yes", "No", new DialogCallBack() {
             @Override
             public void doselectok() {
                 super.doselectok();
@@ -67,7 +67,7 @@ public class SiteInfoActivity extends BaseActivity{
 
     public void onUpdateSite(View view) {
 
-        new TextDialog(this).showDialog("Notification", "Are you sure to modify this site name", "Yse", "No", new DialogCallBack() {
+        new TextDialog(this).showDialog("Notification", "Are you sure to modify this site name", "Yes", "No", new DialogCallBack() {
             @Override
             public void doselectok() {
                 super.doselectok();

@@ -5,9 +5,6 @@ import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 
-/**
- * Created by 陈小龙 on 2017/3/4.
- */
 public class TextDialog extends KedeDialog {
     public TextDialog(Context context) {
         super(context);

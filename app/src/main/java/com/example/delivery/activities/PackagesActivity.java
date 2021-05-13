@@ -53,7 +53,7 @@ public class PackagesActivity extends BaseActivity implements SwipeRefreshLayout
     }
 
     private void initView() {
-        initNavBar(true, "AlL Packages", false);
+        initNavBar(true, "All Packages", false);
 
         drviverList = fd(R.id.package_list);
         mSwipeRefreshLayout = fd(R.id.swipeLayout_package);
