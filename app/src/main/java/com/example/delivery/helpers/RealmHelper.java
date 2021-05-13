@@ -20,6 +20,7 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 public class RealmHelper {
 
@@ -155,6 +156,7 @@ public class RealmHelper {
     public List<PackageModel> getAllPackage() {
         RealmQuery<PackageModel> query = realm.where(PackageModel.class);
         RealmResults<PackageModel> results = query.findAll();
+        results.sort("createTime", Sort.ASCENDING);
         List<PackageModel> list = realm.copyFromRealm(results);
         return list;
     }

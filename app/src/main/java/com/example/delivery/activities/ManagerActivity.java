@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.delivery.R;
+import com.example.delivery.helpers.RealmHelper;
+import com.example.delivery.utils.PackageUtil;
+
+import java.util.List;
+import java.util.Random;
 
 public class ManagerActivity extends BaseActivity {
 
@@ -33,5 +38,20 @@ public class ManagerActivity extends BaseActivity {
 
     public void onPackages(View view) {
         startActivity(new Intent(this, PackagesActivity.class));
+    }
+
+    public void addPak(View view) {
+        RealmHelper realmHelper = new RealmHelper();
+
+        List<String> driverList = realmHelper.getAllUserNames();
+        List<String> siteList = realmHelper.getAllSiteNames();
+        List<String> vendorList = realmHelper.getAllVendorNames();
+        realmHelper.close();
+
+        Random r = new Random();
+        for (int i = 1; i < 51; i++) {
+            PackageUtil.createPackage(this, "Package" + i, driverList.get(r.nextInt(3)), siteList.get(r.nextInt(3)), vendorList.get(r.nextInt(3)));
+        }
+
     }
 }

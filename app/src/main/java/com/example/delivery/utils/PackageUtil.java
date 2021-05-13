@@ -11,6 +11,7 @@ import com.example.delivery.helpers.RealmHelper;
 import com.example.delivery.models.PackageModel;
 import com.example.delivery.models.UserModel;
 
+import java.util.Date;
 import java.util.List;
 
 public class PackageUtil {
@@ -50,6 +51,7 @@ public class PackageUtil {
         packageModel.setDriver(realmHelper.getUserByName(driver));
         packageModel.setVendor(vendor);
         packageModel.setSite(site);
+        packageModel.setCreateTime(new Date());
 
         realmHelper.savePackage(packageModel);
         realmHelper.close();

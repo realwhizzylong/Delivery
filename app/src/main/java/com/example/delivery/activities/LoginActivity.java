@@ -50,6 +50,7 @@ public class LoginActivity extends BaseActivity {
         realmHelper2.close();
 
 
+
         if (UserUtil.isManager(email)) {
             Intent intent1 = new Intent(this, ManagerActivity.class);
             startActivity(intent1);
