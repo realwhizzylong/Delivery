@@ -179,5 +179,4 @@ public class UserUtil {
     public static boolean isManager(String email) {
         return email.equals("manager@example.com");
     }
-
 }

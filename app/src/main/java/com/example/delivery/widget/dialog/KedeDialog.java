@@ -50,12 +50,10 @@ public abstract class KedeDialog implements View.OnClickListener {
     private int mDividerSize = 1;
 
     private float mTitleSize = 40.0f;
-
     private int mTitleBackgroundColor = Color.TRANSPARENT;
 
     private int mMessagePadding = 24;
     private float mMessageSize = 30.0f;
-
 
     private float mCallSize = 30.0f;
 
@@ -105,34 +103,24 @@ public abstract class KedeDialog implements View.OnClickListener {
         }
     }
 
-
     protected abstract int initLayoutId();
-
 
     protected abstract void initView(View view, Context context);
 
-
     protected abstract void initConfig();
-
 
     public TextDialog showDialog(String title, String message, String YES_name, String NO_name, DialogCallBack dialogCallBack) {
         this.mDialogCallBack = dialogCallBack;
         mDialog.show();
-
         initConfig();
-
 
         setCancelable(mCancelable);
 
-
         setCanceledOnTouchOutside(mCanceledOnTouchOutside);
-
 
         setTitle(title);
 
-
         setMessage(message);
-
 
         setCall(YES_name);
 
@@ -148,11 +136,10 @@ public abstract class KedeDialog implements View.OnClickListener {
         p.width = (int) (ScreenUtils.getScreenWidth() * showWidthScale); // 宽度设置为屏幕的0.8
         if (showHeighScale != -1f) {
             p.height = (int) (ScreenUtils.getScreenHeight() * showHeighScale);
-        } else {
+        }else {
             p.height = WindowManager.LayoutParams.WRAP_CONTENT;
         }
         window.setAttributes(p);
-
         window.setContentView(mDialogView);
 
 
@@ -169,7 +156,7 @@ public abstract class KedeDialog implements View.OnClickListener {
             if (title.length() < mOutTitleSize) {
                 mDialogTitle.setText(title);
             } else {
-                mDialogTitle.setText("Text too long");
+                mDialogTitle.setText("The title text is too long and may not be displayed completely");
             }
         }
     }
@@ -189,7 +176,6 @@ public abstract class KedeDialog implements View.OnClickListener {
     private void setCall(String call) {
         if (TextUtils.isEmpty(call)) {
             mDialogCall.setVisibility(View.GONE);
-
         } else {
             mDialogCall.setVisibility(View.VISIBLE);
             setCallSize(mCallSize);
@@ -206,7 +192,6 @@ public abstract class KedeDialog implements View.OnClickListener {
             mDialogCancle.setText(cancle);
         }
     }
-
 
     private void setTextSize(TextView tv, float titleSize) {
         tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize * scale);

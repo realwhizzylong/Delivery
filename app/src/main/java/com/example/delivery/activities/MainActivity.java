@@ -90,7 +90,7 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
 
         RealmHelper realmHelper = new RealmHelper();
         List<PackageModel> list = realmHelper.getPackageByUser(UserInforSPUtils.getName());
-//        List<PackageModel> list = realmHelper.getPackageByUser("Tom");
+ //       List<PackageModel> list = realmHelper.getPackageByUser("Tom");
         realmHelper.close();
 
         boolean showNotify=false;
@@ -241,8 +241,8 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
 
 
         RealmHelper realmHelper = new RealmHelper();
-        List<PackageModel> list = realmHelper.getPackageByUser("Tom");
-//        List<PackageModel> list = realmHelper.getPackageByUser(UserInforSPUtils.getName());
+//        List<PackageModel> list = realmHelper.getPackageByUser("Tom");
+        List<PackageModel> list = realmHelper.getPackageByUser(UserInforSPUtils.getName());
         realmHelper.close();
         List<PackageModel> sortList = new ArrayList<>();
         if (StringUtils.equals("All", selectType)) {

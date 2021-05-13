@@ -1,6 +1,5 @@
 package com.example.delivery.constant;
 
-
 public class UCS {
 
     public static final String USER = "user";
