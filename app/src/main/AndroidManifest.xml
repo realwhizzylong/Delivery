@@ -33,6 +33,9 @@
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.DelievedActivity" />
         <activity android:name=".activities.NotifyActivity" />
+        <activity android:name=".activities.AdminActivity">
+
+        </activity>
         <activity android:name=".activities.MainActivity">
 
         </activity>

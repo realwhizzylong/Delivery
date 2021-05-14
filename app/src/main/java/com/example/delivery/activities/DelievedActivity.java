@@ -20,6 +20,7 @@ public class DelievedActivity extends BaseActivity {
     String ventor;
     String site;
     boolean isManager;
+    boolean isAdmin;
     boolean delivered;
 
     private TextView package_name;
@@ -38,6 +39,7 @@ public class DelievedActivity extends BaseActivity {
         ventor = getIntent().getStringExtra("ventor");
         site = getIntent().getStringExtra("site");
         isManager = getIntent().getBooleanExtra("isManager", false);
+        isAdmin = getIntent().getBooleanExtra("isAdmin", false);
         delivered = getIntent().getBooleanExtra("delivered", false);
 
         initView();
@@ -47,7 +49,7 @@ public class DelievedActivity extends BaseActivity {
     }
 
     private void initData() {
-        if (delivered) {
+        if (delivered || isAdmin) {
             mark.setVisibility(View.GONE);
         } else {
             mark.setVisibility(View.VISIBLE);

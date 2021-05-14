@@ -15,7 +15,9 @@ import com.example.delivery.helpers.RealmHelper;
 import com.example.delivery.models.NotifyModel;
 import com.example.delivery.models.PackageModel;
 import com.example.delivery.utils.PackageUtil;
+import com.example.delivery.utils.SiteUtil;
 import com.example.delivery.utils.UserInforSPUtils;
+import com.example.delivery.utils.UserUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +31,15 @@ public class NotifyActivity extends BaseActivity implements SwipeRefreshLayout.O
 
     NotifyAdapter notifyAdapter;
 
+    private boolean isAdmin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notify);
+
+        isAdmin = UserUtil.isAdmin(UserInforSPUtils.getEmail());
 
         initView();
 
@@ -47,18 +53,32 @@ public class NotifyActivity extends BaseActivity implements SwipeRefreshLayout.O
 
     private void initdata() {
         RealmHelper realmHelper = new RealmHelper();
- //       List<PackageModel> list = realmHelper.getPackageByUser("Tom");
-        List<PackageModel> list = realmHelper.getPackageByUser(UserInforSPUtils.getName());
+        List<PackageModel> list = null;
+        if (isAdmin) {
+            list = realmHelper.getPackageBySite(SiteUtil.getFirstSite());
+        } else {
+            list = realmHelper.getPackageByUser(UserInforSPUtils.getName());
+        }
+
         realmHelper.close();
 
         List<NotifyModel> notify = new ArrayList<>();
 
         for (PackageModel model : list) {
-            if (!model.isNotified()) {
-                NotifyModel notifyModel = new NotifyModel();
-                notifyModel.setNews("You have a new package");
-                notifyModel.setPackageId(model.getPackageId());
-                notify.add(notifyModel);
+            if (isAdmin) {
+                if (model.isDelivered() && !model.isDeliveredNotify()) {
+                    NotifyModel notifyModel = new NotifyModel();
+                    notifyModel.setNews(model.getPackageId() + " has been delivered to " + model.getSite() + " by " + model.getDriver().getUserName() + ".");
+                    notifyModel.setPackageId(model.getPackageId());
+                    notify.add(notifyModel);
+                }
+            } else {
+                if (!model.isNotified()) {
+                    NotifyModel notifyModel = new NotifyModel();
+                    notifyModel.setNews("You have a new " + model.getPackageId() + " which need to deliver to " + model.getSite() + " and collect at " + model.getVendor() + ".");
+                    notifyModel.setPackageId(model.getPackageId());
+                    notify.add(notifyModel);
+                }
             }
         }
 
@@ -93,9 +113,16 @@ public class NotifyActivity extends BaseActivity implements SwipeRefreshLayout.O
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
 
         String packageId = notifyAdapter.getData().get(position).getPackageId();
-        if (!PackageUtil.clearNotify(this, packageId)) {
-            return;
+        if(isAdmin){
+            if (!PackageUtil.clearDeliverNotify(this, packageId)) {
+                return;
+            }
+        }else {
+            if (!PackageUtil.clearNotify(this, packageId)) {
+                return;
+            }
         }
+
 
         notifyAdapter.remove(position);
     }

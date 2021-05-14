@@ -6,6 +6,7 @@ import android.widget.Toast;
 import com.example.delivery.helpers.RealmHelper;
 import com.example.delivery.models.SiteModel;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,6 +26,7 @@ public class SiteUtil {
         SiteModel siteModel = new SiteModel();
         siteModel.setSitId(UUID.randomUUID().toString());
         siteModel.setAddress(address);
+        siteModel.setCreateTime(new Date());
 
         RealmHelper realmHelper = new RealmHelper();
         realmHelper.saveSite(siteModel);
@@ -48,5 +50,13 @@ public class SiteUtil {
         realmHelper.close();
 
         return result;
+    }
+
+    public static String getFirstSite() {
+
+        RealmHelper realmHelper = new RealmHelper();
+        List<String> list = realmHelper.getAllSiteNames();
+        realmHelper.close();
+        return (list != null && !list.isEmpty()) ? list.get(0) : "";
     }
 }

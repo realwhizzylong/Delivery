@@ -43,22 +43,26 @@ public class CreatePackageActivity extends BaseActivity implements OnSpinnerItem
     private void initData() {
         RealmHelper realmHelper = new RealmHelper();
 
-        List<String> driverList = realmHelper.getAllUserNames();
+        List<String> driverList = realmHelper.getAllDriverNames();
         driver_spinner.attachDataSource(driverList);
         if (driverList != null && !driverList.isEmpty()) {
             driver = driverList.get(0);
+            driver_spinner.setSelectedIndex(0);
         }
+
 
         List<String> siteList = realmHelper.getAllSiteNames();
         site_spinner.attachDataSource(siteList);
         if (siteList != null && !siteList.isEmpty()) {
             site = siteList.get(0);
+            site_spinner.setSelectedIndex(0);
         }
 
         List<String> vendorList = realmHelper.getAllVendorNames();
         vendor_spinner.attachDataSource(vendorList);
         if (vendorList != null && !vendorList.isEmpty()) {
             vemdor = vendorList.get(0);
+            vendor_spinner.setSelectedIndex(0);
         }
 
         realmHelper.close();

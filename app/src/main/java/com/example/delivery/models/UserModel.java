@@ -1,5 +1,7 @@
 package com.example.delivery.models;
 
+import java.util.Date;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.Required;
@@ -18,6 +20,16 @@ public class UserModel extends RealmObject {
     private String phone;
 
     private String profilePicture;
+
+    private Date createTime;
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
     public String getEmail() {
         return email;

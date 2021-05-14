@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.StringUtils;
 import com.example.delivery.R;
 import com.example.delivery.helpers.UserHelper;
 import com.example.delivery.utils.UserInforSPUtils;
@@ -26,17 +27,28 @@ public class AccountActivity extends BaseActivity {
         initView();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initData();
+    }
+
+    private void initData() {
+
+        username.setText(UserInforSPUtils.getName());
+        phone.setText(UserInforSPUtils.getPhone());
+        if (!StringUtils.isEmpty(UserInforSPUtils.getPic())) {
+            Uri uri = Uri.parse(UserInforSPUtils.getPic());
+            profilePicture.setImageURI(uri);
+        }
+    }
+
     private void initView() {
         initNavBar(true, "User Account", false);
         username = fd(R.id.username);
         phone = fd(R.id.phone);
         profilePicture = fd(R.id.profile_picture);
-        username.setText(UserHelper.getInstance().getUserName());
-        phone.setText(UserHelper.getInstance().getPhone());
-        if (UserHelper.getInstance().getProfilePicture() != null && !UserHelper.getInstance().getProfilePicture().equals("")) {
-            Uri uri = Uri.parse(UserHelper.getInstance().getProfilePicture());
-            profilePicture.setImageURI(uri);
-        }
+
     }
 
     public void onAddPhoneNumClick(View view) {

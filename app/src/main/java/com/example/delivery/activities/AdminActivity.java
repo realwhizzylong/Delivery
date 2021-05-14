@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -22,9 +20,9 @@ import com.blankj.utilcode.util.TimeUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.delivery.R;
 import com.example.delivery.adapters.PackageAdapter;
-import com.example.delivery.adapters.PackageListAdapter;
 import com.example.delivery.helpers.RealmHelper;
 import com.example.delivery.models.PackageModel;
+import com.example.delivery.utils.SiteUtil;
 import com.example.delivery.utils.UserInforSPUtils;
 
 import org.angmarch.views.NiceSpinner;
@@ -35,7 +33,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.OnItemClickListener , OnSpinnerItemSelectedListener {
+public class AdminActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.OnItemClickListener , OnSpinnerItemSelectedListener {
 
     private RecyclerView mRvlist;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -72,7 +70,7 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_admin);
 
         initView();
 
@@ -89,13 +87,13 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
     private void checkNotify() {
 
         RealmHelper realmHelper = new RealmHelper();
-        List<PackageModel> list = realmHelper.getPackageByUser(UserInforSPUtils.getName());
- //       List<PackageModel> list = realmHelper.getPackageByUser("Jim");
+        List<PackageModel> list = realmHelper.getPackageBySite(SiteUtil.getFirstSite());
+//        List<PackageModel> list = realmHelper.getPackageByUser("Jim");
         realmHelper.close();
 
         boolean showNotify=false;
         for (PackageModel model : list) {
-            if (!model.isNotified()) {
+            if (model.isDelivered() && !model.isDeliveredNotify()) {
                 showNotify=true;
                 break;
             }
@@ -118,7 +116,7 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
     }
 
     private void initView() {
-        initNavBar(false, "Delivery", true);
+        initNavBar(false, "Admin", true);
 
         reset_txt = fd(R.id.reset_txt);
         reset_txt.setOnClickListener(new View.OnClickListener() {
@@ -239,10 +237,8 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
 
     private void refreshData(String selectType) {
 
-
         RealmHelper realmHelper = new RealmHelper();
-//        List<PackageModel> list = realmHelper.getPackageByUser("Tom");
-        List<PackageModel> list = realmHelper.getPackageByUser(UserInforSPUtils.getName());
+        List<PackageModel> list = realmHelper.getPackageBySite(SiteUtil.getFirstSite());
         realmHelper.close();
         List<PackageModel> sortList = new ArrayList<>();
         if (StringUtils.equals("All", selectType)) {
@@ -326,6 +322,7 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
         intent1.putExtra("ventor", packageAdapter.getData().get(position).getVendor());
         intent1.putExtra("site", packageAdapter.getData().get(position).getSite());
         intent1.putExtra("isManager", false);
+        intent1.putExtra("isAdmin", true);
         intent1.putExtra("delivered", packageAdapter.getData().get(position).isDelivered());
         startActivity(intent1);
     }

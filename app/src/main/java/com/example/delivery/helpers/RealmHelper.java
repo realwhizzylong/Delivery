@@ -13,7 +13,10 @@ import com.example.delivery.models.PackageModel;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import io.realm.Realm;
@@ -48,18 +51,64 @@ public class RealmHelper {
     public List<UserModel> getAllUsers() {
         RealmQuery<UserModel> query = realm.where(UserModel.class);
         RealmResults<UserModel> results = query.findAll();
+        results.sort("createTime", Sort.ASCENDING);
         List<UserModel> list = realm.copyFromRealm(results);
+        Collections.sort(list, new UserComparatorSort());
+        return list;
+    }
+
+    public List<UserModel> getAllDrivers() {
+        RealmQuery<UserModel> query = realm.where(UserModel.class);
+        RealmResults<UserModel> results = query.findAll();
+        results.sort("createTime", Sort.ASCENDING);
+        List<UserModel> list = realm.copyFromRealm(results);
+
+        Iterator<UserModel> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            UserModel model = iterator.next();
+            if (model.getEmail() != null && StringUtils.equals(model.getEmail(), "manager@example.com")) {
+                iterator.remove();
+            }
+            if (model.getEmail() != null && StringUtils.equals(model.getEmail(), "admin@example.com")) {
+                iterator.remove();
+            }
+        }
+
+        Collections.sort(list, new UserComparatorSort());
+
         return list;
     }
 
     public List<String> getAllUserNames() {
         RealmQuery<UserModel> query = realm.where(UserModel.class);
         RealmResults<UserModel> results = query.findAll();
-        List<String> list = new ArrayList<>();
-        for (UserModel model : results) {
-            list.add(model.getUserName());
+        results.sort("createTime", Sort.ASCENDING);
+        List<UserModel> list = realm.copyFromRealm(results);
+        Collections.sort(list, new UserComparatorSort());
+
+        List<String> names = new ArrayList<>();
+        for (UserModel model : list) {
+            names.add(model.getUserName());
         }
-        return list;
+        return names;
+    }
+
+    public List<String> getAllDriverNames() {
+        RealmQuery<UserModel> query = realm.where(UserModel.class);
+        RealmResults<UserModel> results = query.findAll();
+        results.sort("createTime", Sort.ASCENDING);
+        List<UserModel> list = realm.copyFromRealm(results);
+        Collections.sort(list, new UserComparatorSort());
+
+        List<String> names = new ArrayList<>();
+
+        for (UserModel model : list) {
+            if (!StringUtils.equals(model.getEmail(), "manager@example.com") && !StringUtils.equals(model.getEmail(), "admin@example.com")) {
+                names.add(model.getUserName());
+            }
+
+        }
+        return names;
     }
 
     public UserModel getUserByEmail(String email) {
@@ -108,19 +157,25 @@ public class RealmHelper {
     public List<VendorModel> getAllVendors() {
         RealmQuery<VendorModel> query = realm.where(VendorModel.class);
         RealmResults<VendorModel> results = query.findAll();
+        results.sort("createTime", Sort.ASCENDING);
         List<VendorModel> list = realm.copyFromRealm(results);
+        Collections.sort(list, new ComparatorSort());
         return list;
     }
 
     public List<String> getAllVendorNames() {
         RealmQuery<VendorModel> query = realm.where(VendorModel.class);
         RealmResults<VendorModel> results = query.findAll();
-        List<String> list = new ArrayList<>();
-        for (VendorModel model : results) {
-            list.add(model.getVendorName());
+        results.sort("createTime", Sort.ASCENDING);
+        List<VendorModel> list = realm.copyFromRealm(results);
+        Collections.sort(list, new ComparatorSort());
+
+        List<String> names = new ArrayList<>();
+        for (VendorModel model : list) {
+            names.add(model.getVendorName());
         }
 
-        return list;
+        return names;
     }
 
     public void saveVendor(VendorModel vendorModel) {
@@ -132,19 +187,25 @@ public class RealmHelper {
     public List<SiteModel> getAllSites() {
         RealmQuery<SiteModel> query = realm.where(SiteModel.class);
         RealmResults<SiteModel> results = query.findAll();
+        results.sort("createTime", Sort.ASCENDING);
         List<SiteModel> list = realm.copyFromRealm(results);
+        Collections.sort(list, new SiteComparatorSort());
         return list;
     }
 
     public List<String> getAllSiteNames() {
         RealmQuery<SiteModel> query = realm.where(SiteModel.class);
         RealmResults<SiteModel> results = query.findAll();
-        List<String> list = new ArrayList<>();
-        for (SiteModel model : results) {
-            list.add(model.getAddress());
+        results.sort("createTime", Sort.ASCENDING);
+        List<SiteModel> list = realm.copyFromRealm(results);
+        Collections.sort(list, new SiteComparatorSort());
+
+        List<String> names = new ArrayList<>();
+        for (SiteModel model : list) {
+            names.add(model.getAddress());
         }
 
-        return list;
+        return names;
     }
 
     public void saveSite(SiteModel siteModel) {
@@ -158,12 +219,14 @@ public class RealmHelper {
         RealmResults<PackageModel> results = query.findAll();
         results.sort("createTime", Sort.ASCENDING);
         List<PackageModel> list = realm.copyFromRealm(results);
+        Collections.sort(list, new PackageComparatorSort());
         return list;
     }
 
     public List<PackageModel> getPackageByUser(String userName) {
         RealmQuery<PackageModel> query = realm.where(PackageModel.class);
         RealmResults<PackageModel> results = query.findAll();
+        results.sort("createTime", Sort.ASCENDING);
         List<PackageModel> list = realm.copyFromRealm(results);
         List<PackageModel> userPackage = new ArrayList<>();
         for (PackageModel packageModel : list) {
@@ -171,7 +234,17 @@ public class RealmHelper {
                 userPackage.add(packageModel);
             }
         }
+        Collections.sort(userPackage, new PackageComparatorSort());
         return userPackage;
+    }
+
+    public List<PackageModel> getPackageBySite(String site) {
+        RealmQuery<PackageModel> query = realm.where(PackageModel.class).equalTo("site", site);
+        RealmResults<PackageModel> results = query.findAll();
+        results.sort("createTime", Sort.ASCENDING);
+        List<PackageModel> list = realm.copyFromRealm(results);
+        Collections.sort(list, new PackageComparatorSort());
+        return list;
     }
 
     public void savePackage(PackageModel packageModel) {
@@ -278,5 +351,60 @@ public class RealmHelper {
             packageModel.setNotified(true);
 
         });
+    }
+    public void clearDeliverNotify(String packageName) {
+        realm.executeTransactionAsync(r -> {
+            PackageModel packageModel = r.where(PackageModel.class).equalTo("packageId", packageName).findFirst();
+            packageModel.setDeliveredNotify(true);
+
+        });
+    }
+
+    class ComparatorSort implements Comparator<VendorModel> {
+
+        @Override
+        public int compare(VendorModel o1, VendorModel o2) {
+            if (o1.getCreateTime().before(o2.getCreateTime())) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
+    }
+
+    class SiteComparatorSort implements Comparator<SiteModel> {
+
+        @Override
+        public int compare(SiteModel o1, SiteModel o2) {
+            if (o1.getCreateTime().before(o2.getCreateTime())) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
+    }
+
+    class UserComparatorSort implements Comparator<UserModel> {
+
+        @Override
+        public int compare(UserModel o1, UserModel o2) {
+            if (o1.getCreateTime().before(o2.getCreateTime())) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
+    }
+
+    class PackageComparatorSort implements Comparator<PackageModel> {
+
+        @Override
+        public int compare(PackageModel o1, PackageModel o2) {
+            if (o1.getCreateTime().before(o2.getCreateTime())) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
     }
 }

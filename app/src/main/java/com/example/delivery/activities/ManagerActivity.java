@@ -43,14 +43,14 @@ public class ManagerActivity extends BaseActivity {
     public void addPak(View view) {
         RealmHelper realmHelper = new RealmHelper();
 
-        List<String> driverList = realmHelper.getAllUserNames();
+        List<String> driverList = realmHelper.getAllDriverNames();
         List<String> siteList = realmHelper.getAllSiteNames();
         List<String> vendorList = realmHelper.getAllVendorNames();
         realmHelper.close();
 
         Random r = new Random();
         for (int i = 1; i < 51; i++) {
-            PackageUtil.createPackage(this, "Package" + i, driverList.get(r.nextInt(3)), siteList.get(r.nextInt(3)), vendorList.get(r.nextInt(3)));
+            PackageUtil.createPackage(this, "Package" + i, driverList.get(r.nextInt(driverList.size())), siteList.get(r.nextInt(siteList.size())), vendorList.get(r.nextInt(vendorList.size())));
         }
 
     }

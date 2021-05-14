@@ -34,15 +34,17 @@ public class AddPhoneNumActivity extends BaseActivity {
             return;
         }
 
-        String email = UserHelper.getInstance().getEmail();
-        if (UserUtil.isManager(email)) {
-            Intent intent = new Intent(this, ManagerActivity.class);
-            startActivity(intent);
-            finish();
-        } else {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
+        finish();
+
+//        String email = UserHelper.getInstance().getEmail();
+//        if (UserUtil.isManager(email)) {
+//            Intent intent = new Intent(this, ManagerActivity.class);
+//            startActivity(intent);
+//            finish();
+//        } else {
+//            Intent intent = new Intent(this, MainActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
     }
 }

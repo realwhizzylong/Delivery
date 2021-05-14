@@ -45,7 +45,7 @@ public class DriversActivity extends BaseActivity implements SwipeRefreshLayout.
 
     private void initData() {
         RealmHelper realmHelper = new RealmHelper();
-        List<UserModel> list = realmHelper.getAllUsers();
+        List<UserModel> list = realmHelper.getAllDrivers();
         realmHelper.close();
         driverAdapter.setNewData(list);
         mSwipeRefreshLayout.setRefreshing(false);

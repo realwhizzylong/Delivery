@@ -10,6 +10,7 @@ import com.example.delivery.helpers.RealmHelper;
 import com.example.delivery.helpers.UserHelper;
 import com.example.delivery.models.UserModel;
 
+import java.util.Date;
 import java.util.List;
 
 public class UserUtil {
@@ -38,18 +39,16 @@ public class UserUtil {
             return false;
         }
 
-        RealmHelper realmHelper2 = new RealmHelper();
-        UserModel userModel = realmHelper2.getUserByEmail(email);
-        UserHelper.getInstance().setUserName(userModel.getUserName());
-        UserHelper.getInstance().setEmail(email);
-        UserHelper.getInstance().setPhone(userModel.getPhone());
-        UserHelper.getInstance().setProfilePicture(userModel.getProfilePicture());
-        realmHelper2.close();
 
         return true;
     }
 
     public static void logout(Context context) {
+        UserInforSPUtils.saveEmail("");
+        UserInforSPUtils.saveName("");
+        UserInforSPUtils.savePhone("");
+        UserInforSPUtils.savePic("");
+
         Intent intent = new Intent(context, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
@@ -69,10 +68,12 @@ public class UserUtil {
         }
 
         RealmHelper realmHelper = new RealmHelper();
-        String email = UserHelper.getInstance().getEmail();
+//        String email = UserHelper.getInstance().getEmail();
+        String email = UserInforSPUtils.getEmail();
         UserModel userModel = realmHelper.getUserByEmail(email);
         realmHelper.addUserPhone(userModel, phone);
-        UserHelper.getInstance().setPhone(phone);
+//        UserHelper.getInstance().setPhone(phone);
+        UserInforSPUtils.savePhone(phone);
         realmHelper.close();
 
         return true;
@@ -85,12 +86,14 @@ public class UserUtil {
         }
 
         RealmHelper realmHelper = new RealmHelper();
-        String email = UserHelper.getInstance().getEmail();
+//        String email = UserHelper.getInstance().getEmail();
+        String email = UserInforSPUtils.getEmail();
         UserModel userModel = realmHelper.getUserByEmail(email);
         realmHelper.updateProfilePicture(userModel, imageURL);
         realmHelper.close();
 
-        UserHelper.getInstance().setProfilePicture(imageURL);
+//        UserHelper.getInstance().setProfilePicture(imageURL);
+        UserInforSPUtils.savePic(imageURL);
 
         return true;
     }
@@ -114,7 +117,8 @@ public class UserUtil {
         }
 
         RealmHelper realmHelper = new RealmHelper();
-        String email = UserHelper.getInstance().getEmail();
+//        String email = UserHelper.getInstance().getEmail();
+        String email = UserInforSPUtils.getEmail();
         UserModel userModel = realmHelper.getUserByEmail(email);
 
         if (!EncryptUtils.encryptMD5ToString(currentPassword).equals(userModel.getPassword())) {
@@ -151,6 +155,7 @@ public class UserUtil {
         userModel.setUsername(name);
         userModel.setEmail(email);
         userModel.setPassword(EncryptUtils.encryptMD5ToString(password));
+        userModel.setCreateTime(new Date());
 
         RealmHelper realmHelper = new RealmHelper();
         realmHelper.saveUser(userModel);
@@ -179,4 +184,8 @@ public class UserUtil {
     public static boolean isManager(String email) {
         return email.equals("manager@example.com");
     }
+    public static boolean isAdmin(String email) {
+        return email.equals("admin@example.com");
+    }
+
 }

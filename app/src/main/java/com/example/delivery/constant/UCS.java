@@ -1,6 +1,12 @@
 package com.example.delivery.constant;
 
+/**
+ * Created by HJ on 2018/3/13.
+ */
+
 public class UCS {
+
+
 
     public static final String USER = "user";
     public static final String EMAIL = "email";

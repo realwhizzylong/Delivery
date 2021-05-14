@@ -57,7 +57,7 @@ public class PackageInfoActivity extends BaseActivity implements OnSpinnerItemSe
     private void loadSelectData() {
         RealmHelper realmHelper = new RealmHelper();
 
-        List<String> driverList = realmHelper.getAllUserNames();
+        List<String> driverList = realmHelper.getAllDriverNames();
         driver_spinner.attachDataSource(driverList);
         driver_spinner.setSelectedIndex(driverList.indexOf(driver));
 

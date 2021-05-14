@@ -129,4 +129,11 @@ public class PackageUtil {
 
         return true;
     }
+    public static boolean clearDeliverNotify(Context context, String packageName) {
+        RealmHelper realmHelper = new RealmHelper();
+        realmHelper.clearDeliverNotify(packageName);
+        realmHelper.close();
+
+        return true;
+    }
 }

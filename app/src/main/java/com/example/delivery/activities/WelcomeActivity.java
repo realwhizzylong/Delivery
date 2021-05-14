@@ -45,9 +45,12 @@ public class WelcomeActivity extends BaseActivity {
             if (UserUtil.isManager(UserInforSPUtils.getEmail())) {
                 Intent intent1 = new Intent(this, ManagerActivity.class);
                 startActivity(intent1);
-            } else {
-                Intent intent2 = new Intent(this, MainActivity.class);
+            } else if(UserUtil.isAdmin(UserInforSPUtils.getEmail())){
+                Intent intent2 = new Intent(this, AdminActivity.class);
                 startActivity(intent2);
+            }else {
+                Intent intent3 = new Intent(this, MainActivity.class);
+                startActivity(intent3);
             }
             finish();
 

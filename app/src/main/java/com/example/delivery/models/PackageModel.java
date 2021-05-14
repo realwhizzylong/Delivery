@@ -28,6 +28,16 @@ public class PackageModel extends RealmObject {
 
     private boolean delivered;
 
+    private boolean deliveredNotify;
+
+    public boolean isDeliveredNotify() {
+        return deliveredNotify;
+    }
+
+    public void setDeliveredNotify(boolean deliveredNotify) {
+        this.deliveredNotify = deliveredNotify;
+    }
+
     public String getPackageId() {
         return packageId;
     }
