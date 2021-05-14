@@ -37,13 +37,13 @@ public class VentorInfoActivity extends BaseActivity {
     }
 
     private void initView() {
-        initNavBar(true, "Ventor Info", false);
+        initNavBar(true, "Vendor Info", false);
         ventor_name = fd(R.id.ventor_name);
     }
 
     public void onDeleteVentor(View view) {
 
-        new TextDialog(this).showDialog("Notification", "Are you sure to delete this ventor", "Yes", "No", new DialogCallBack() {
+        new TextDialog(this).showDialog("Notification", "Are you sure to delete this vendor", "Yes", "No", new DialogCallBack() {
             @Override
             public void doselectok() {
                 super.doselectok();
@@ -65,7 +65,7 @@ public class VentorInfoActivity extends BaseActivity {
 
     public void onUpdateVentor(View view) {
 
-        new TextDialog(this).showDialog("Notification", "Are you sure to modify this ventor name", "Yes", "No", new DialogCallBack() {
+        new TextDialog(this).showDialog("Notification", "Are you sure to modify this vendor name", "Yes", "No", new DialogCallBack() {
             @Override
             public void doselectok() {
                 super.doselectok();
@@ -79,7 +79,7 @@ public class VentorInfoActivity extends BaseActivity {
     private void modify() {
         String name = ventor_name.getText().toString();
         if (StringUtils.isEmpty(name)) {
-            Toast.makeText(this, "Ventor name isEmpty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Vendor name isEmpty", Toast.LENGTH_SHORT).show();
             return;
         }
         if (StringUtils.equals(ventor, name)) {
